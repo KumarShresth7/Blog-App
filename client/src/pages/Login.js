@@ -20,7 +20,7 @@ const LoginPage = ({ setToken }) => {
 
   return (
     <div className='login'>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='login-form'>
       <h1>Login</h1>
       <input
         type="text"

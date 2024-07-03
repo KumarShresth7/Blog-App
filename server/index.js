@@ -13,6 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err)=>console.log(err))
 
 app.use('/auth',require('./routes/authRoutes'))
+app.use('/posts',require('./routes/postRoutes'))
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT,()=>console.log(`Server is listening at ${PORT}`))

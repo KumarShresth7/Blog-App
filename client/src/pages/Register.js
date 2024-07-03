@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const LoginPage = ({ setToken }) => {
+const Register = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { username, password });
+      const response = await axios.post('http://localhost:5000/auth/register', { username, password });
       setToken(response.data.token);
       localStorage.setItem('token', response.data.token);
     } catch (error) {
-      console.error('Invalid credentials', error);
+      console.error('Registration error', error);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <input
         type="text"
         value={username}
@@ -31,9 +31,10 @@ const LoginPage = ({ setToken }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-      <button type="submit">Login</button>
+      <button type="submit">Register</button>
+      <a href='/login'>Already a User?</a>
     </form>
   );
 };
 
-export default LoginPage;
+export default Register;

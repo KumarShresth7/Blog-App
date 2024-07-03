@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Login.css'
 
 const LoginPage = ({ setToken }) => {
   const [username, setUsername] = useState('');
@@ -9,6 +10,7 @@ const LoginPage = ({ setToken }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/auth/login', { username, password });
+      console.log(response.data.username)
       setToken(response.data.token);
       localStorage.setItem('token', response.data.token);
     } catch (error) {
@@ -17,6 +19,7 @@ const LoginPage = ({ setToken }) => {
   };
 
   return (
+    <div className='login'>
     <form onSubmit={handleSubmit}>
       <h1>Login</h1>
       <input
@@ -32,7 +35,9 @@ const LoginPage = ({ setToken }) => {
         placeholder="Password"
       />
       <button type="submit">Login</button>
+      <a href='/register'>New User?</a>
     </form>
+    </div>
   );
 };
 

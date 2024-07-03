@@ -4,6 +4,7 @@ import BlogList from './components/BlogList'
 import NewPost from './components/NewPost'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import './App.css'
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
@@ -14,16 +15,11 @@ const App = () => {
       setToken(token)
   }, [])
 
-  const handleLogout = () => {
-    setToken('');
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-};
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={token?<BlogList handleLogout = {handleLogout} /> :<Navigate to='/login'/>}/>
+        <Route path="/" element={token?<BlogList setToken={setToken}/> :<Navigate to='/login'/>}/>
         <Route path="/new" element={token ? <NewPost token={token} /> : <Navigate to="/login" />} />
         <Route path="/login" element={!token ? <Login setToken={setToken}/> : <Navigate to="/" />} />
         <Route path="/register" element={!token ? <Register setToken={setToken}/> : <Navigate to="/"/>}/>

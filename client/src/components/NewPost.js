@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate } from 'react-router-dom';
+import './NewPost.css'
 
 const NewPost = ({ token }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  let navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ const NewPost = ({ token }) => {
       };
       const response = await axios.post('http://localhost:5000/posts', { title, content }, config);
       console.log(response.data);
+      navigate('/')
       // You can redirect or reset form fields after successful submission
     } catch (error) {
       console.error('Error creating post', error);

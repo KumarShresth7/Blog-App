@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = ({ setToken }) => {
+const LoginPage = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -36,4 +36,4 @@ const Login = ({ setToken }) => {
   );
 };
 
-export default Login;
+export default LoginPage;

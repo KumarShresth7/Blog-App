@@ -34,7 +34,7 @@ const loginUser = async(req,res)=>{
         }
 
         const token = jwt.sign({userId:user._id},process.env.JWT_SECRET)
-        res.json({token,username:newUser.username})
+        res.json({token,username:user.username})
 
     } catch (error) {
         console.log(error)

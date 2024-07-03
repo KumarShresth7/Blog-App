@@ -14,13 +14,19 @@ const App = () => {
       setToken(token)
   }, [])
 
+  const handleLogout = () => {
+    setToken('');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+};
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<BlogList />} />
+        <Route path="/" element={token?<BlogList handleLogout = {handleLogout} /> :<Navigate to='/login'/>}/>
         <Route path="/new" element={token ? <NewPost token={token} /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
+        <Route path="/login" element={!token ? <Login setToken={setToken}/> : <Navigate to="/" />} />
+        <Route path="/register" element={!token ? <Register setToken={setToken}/> : <Navigate to="/"/>}/>
       </Routes>
     </Router>
   )

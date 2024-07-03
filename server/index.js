@@ -5,7 +5,15 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const app = express()
-app.use(cors())
+
+const corsOptions = {
+    origin:'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers as needed
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URI)

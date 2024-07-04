@@ -31,16 +31,8 @@ const BlogList = ({ setToken }) => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar handleLogout={handleLogout}/>
       <div className="container">
-        <div className="link">
-          <Link to="/new" className="semi-link">
-            Create Post
-          </Link>
-        </div>
-        <button onClick={handleLogout} className="logout">
-          Logout
-        </button>
         <div className="container2">
           {posts.map(post => (
             <div key={post._id} className="card" style={cardStyle}>

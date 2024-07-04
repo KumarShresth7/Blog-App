@@ -1,0 +1,14 @@
+.navbar-brand {
+    font-weight: bold; /* Making the font bold */
+    /* Add additional styles to make it attractive */
+    /* For example: */
+    color: #333; /* Text color */
+    font-size: 40px; /* Font size */
+    text-decoration: none; /* Remove underline */
+    background: linear-gradient(to right, orange, white);
+}
+
+.navbar-brand:hover {
+    color: #555; /* Change color on hover */
+    /* Add additional hover effects if desired */
+}

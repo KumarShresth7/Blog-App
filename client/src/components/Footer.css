@@ -1,0 +1,66 @@
+/* ======- FOOTER -====== */
+footer {
+    position: absolute; /* Positioning relative to the nearest positioned ancestor */
+    bottom: 0; /* Stick to the bottom */
+    left: 0;
+    width: 100%; /* Full width */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #efefef;
+    text-align: center;
+}
+
+/* footer text */
+footer div p {
+    font-family: 'Rubik One', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+footer div p i.red {
+    color: red;
+    font-size: 24px; /* Corrected property to font-size */
+}
+
+/* footer text effects */
+footer div p span {
+    transition: background-color, color 1500ms ease;
+    background-color: black;
+    color: white;
+}
+
+footer div p span:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Footer Image Links */
+footer a.github,
+footer a.codepen {
+    transition: color 500ms ease;
+    font-size: 3em;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* image links hover effects */
+footer a.github:hover,
+footer a.codepen:hover {
+    color: darkgray;
+}
+
+/* Responsive Footer */
+@media screen and (max-width: 400px) {
+    footer {
+        position: fixed; /* Fixed position at the bottom for mobile */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #efefef;
+        text-align: center;
+    }
+
+    footer div p {
+        font-size: 15px; /* Adjusted font size for smaller screens */
+    }
+}

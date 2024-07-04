@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './NewPost.css';
+import { baseUrl } from '../baseUrl';
 
 const NewPost = ({ token }) => {
   const [title, setTitle] = useState('');
@@ -26,7 +27,7 @@ const NewPost = ({ token }) => {
         }
       };
 
-      const response = await axios.post('http://localhost:5000/posts/upload', formData, config);
+      const response = await axios.post(`${baseUrl}/posts/upload`, formData, config);
       console.log(response.data);
       navigate('/');
     } catch (error) {

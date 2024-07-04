@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './BlogList.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { baseUrl } from '../baseUrl';
 
 const BlogList = ({ setToken }) => {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,7 @@ const BlogList = ({ setToken }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/posts');
+        const response = await axios.get(`${baseUrl}/posts`);
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts', error);
@@ -38,7 +39,7 @@ const BlogList = ({ setToken }) => {
             <div key={post._id} className="card" style={cardStyle}>
               {post.image && (
                 <img
-                  src={`http://localhost:5000${post.image}`} // Adjust path as per your server setup
+                  src={`${baseUrl}${post.image}`} // Adjust path as per your server setup
                   className="card-img-top"
                   alt="Post Image"
                 />

@@ -3,12 +3,13 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const path = require('path')
+const baseUrl = require('./baseUrl')
 dotenv.config()
 
 const app = express()
 
 const corsOptions = {
-    origin:'http://localhost:3000',
+    origin:`${baseUrl}`,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers as needed
     optionsSuccessStatus: 200,

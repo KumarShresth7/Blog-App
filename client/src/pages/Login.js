@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'
+import { baseUrl } from '../baseUrl';
 
 const LoginPage = ({ setToken }) => {
   const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ const LoginPage = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { username, password });
+      const response = await axios.post(`${baseUrl}/auth/login`, { username, password });
       console.log(response.data.username)
       setToken(response.data.token);
       localStorage.setItem('token', response.data.token);

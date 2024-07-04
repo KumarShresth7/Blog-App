@@ -17,4 +17,11 @@ textarea{
     padding: 100px;
     background: url('https://wallpapers.com/images/hd/dark-workspace-blogging-backdrop-acqoss4ry3i7ijyl.jpg');
     background-position: right;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.form-input-title{
+    width: 8rem;
 }

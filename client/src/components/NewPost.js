@@ -43,7 +43,7 @@ const NewPost = ({ token }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
-        className="form-input"
+        className="form-input-title"
         required
       />
       <textarea

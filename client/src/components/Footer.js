@@ -17,12 +17,12 @@ const Footer = () => {
               <div className="col-12 col-md-4 col-lg-3 col-xl-2">
                 <div className="widget">
                   <h4 className="widget-title mb-4">Get in Touch</h4>
-                  <address className="mb-4">8014 Edith Blvd NE, Albuquerque, New York, United States</address>
-                  <p className="mb-1">
+                  {/* <address className="mb-4">8014 Edith Blvd NE, Albuquerque, New York, United States</address> */}
+                  {/* <p className="mb-1">
                     <a className="link-secondary text-decoration-none" href="tel:+15057922430">(505) 792-2430</a>
-                  </p>
+                  </p> */}
                   <p className="mb-0">
-                    <a className="link-secondary text-decoration-none" href="mailto:demo@yourdomain.com">demo@yourdomain.com</a>
+                    <a className="link-secondary text-decoration-none text-dark" href="mailto:demo@yourdomain.com">kumarshresth2004@gmail.com</a>
                   </p>
                 </div>
               </div>
@@ -31,7 +31,7 @@ const Footer = () => {
                   <h4 className="widget-title mb-4">Learn More</h4>
                   <ul className="list-unstyled">
                     <li className="mb-2">
-                      <a href="#!" className="link-secondary text-decoration-none">About</a>
+                      <a href="#!" className="link-secondary text-decoration-none text-dark">About</a>
                     </li>
                   </ul>
                 </div>

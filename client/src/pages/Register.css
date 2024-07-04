@@ -1,0 +1,14 @@
+.register{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin: 150px;
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    background: url('https://wallpapers.com/images/hd/dark-workspace-blogging-backdrop-acqoss4ry3i7ijyl.jpg');
+    background-position: right;
+}

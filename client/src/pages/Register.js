@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Register.css'
 
 const Register = ({ setToken }) => {
   const [username, setUsername] = useState('');
@@ -17,7 +18,8 @@ const Register = ({ setToken }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='register'>
+    <form onSubmit={handleSubmit} className='register-form'>
       <h1>Register</h1>
       <input
         type="text"
@@ -34,6 +36,7 @@ const Register = ({ setToken }) => {
       <button type="submit">Register</button>
       <a href='/login'>Already a User?</a>
     </form>
+    </div>
   );
 };
 

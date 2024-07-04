@@ -26,7 +26,8 @@ const NewPost = ({ token }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='new-post'>
+    <form onSubmit={handleSubmit} className='new-post-form'>
       <h1>New Post</h1>
       <input
         type="text"
@@ -41,6 +42,7 @@ const NewPost = ({ token }) => {
       ></textarea>
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 };
 

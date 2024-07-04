@@ -8,7 +8,8 @@ import Footer from './Footer';
 const BlogList = ({ setToken }) => {
   const [posts, setPosts] = useState([]);
   const cardStyle = {
-    width: '18rem'
+    width: '18rem',
+    marginBottom: '20px',
   };
 
   useEffect(() => {
@@ -30,36 +31,38 @@ const BlogList = ({ setToken }) => {
 
   return (
     <div>
-      <Navbar/>
-    <div className="container">
-      <div className="link">
-      <Link to='/new' className='semi-link'>Create Post</Link>
-      </div>
-      <button onClick={handleLogout} className='logout'>Logout</button>
-      <div className="container2">
-      {posts.map(post => (
-        <div key={post._id} className="card" style={cardStyle}>
-        <img src="..." className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{post.title}</h5>
-          <p className="card-text">{post.content}</p>
-          <div className="btn btn-primary">Author: {post.user.username}</div>
+      <Navbar />
+      <div className="container">
+        <div className="link">
+          <Link to="/new" className="semi-link">
+            Create Post
+          </Link>
         </div>
-      </div> 
-      ))}
+        <button onClick={handleLogout} className="logout">
+          Logout
+        </button>
+        <div className="container2">
+          {posts.map(post => (
+            <div key={post._id} className="card" style={cardStyle}>
+              {post.image && (
+                <img
+                  src={`http://localhost:5000${post.image}`} // Adjust path as per your server setup
+                  className="card-img-top"
+                  alt="Post Image"
+                />
+              )}
+              <div className="card-body">
+                <h5 className="card-title">{post.title}</h5>
+                <p className="card-text">{post.content}</p>
+                <div className="btn btn-primary">Author: {post.user.username}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </div>
   );
 };
 
 export default BlogList;
-
-
-
-{/* <div key={post._id} className='post'>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-          <p><strong>Author:</strong> {post.user.username}</p>
-        </div> */}

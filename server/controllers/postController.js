@@ -77,11 +77,40 @@ const deletePost = async(req,res)=>{
     }
 }
 
+
+const uploadImage = async (req, res) => {
+    try {
+      console.log('Request body:', req.body); // Log request body
+      console.log('Request file:', req.file); // Log request file
+  
+      const { title, content } = req.body;
+      let image = null;
+  
+      // Check if file exists in request
+      if (req.file) {
+        image = `/uploads/${req.file.filename}`;
+      }
+  
+      // Ensure both title and content are provided
+      if (!title || !content) {
+        return res.status(400).json({ message: 'Title and content are required' });
+      }
+  
+      const post = new Post({ title, content, image, user: req.user.userId}); // Assign user ID
+      await post.save();
+      res.status(201).json(post);
+    } catch (err) {
+      console.error('Error creating post:', err); // Log error
+      res.status(500).json({ message: 'Error creating post', error: err.message });
+    }
+  };
+
 module.exports = {
     getPosts,
     getPost,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    uploadImage
 }
 
